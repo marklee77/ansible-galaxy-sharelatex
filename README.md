@@ -2,12 +2,8 @@ Role Name
 ========
 
 The purpose of this role is to install sharelatex to a web server and enable
-access with nginx. This install uses the MySQL backend rather than Postgres. The
-sharelatex server name can be specified by changing the sharelatex_hostname
-variable in vars/main.yml.
-
-This has only been trusted on Ubuntu trusty. It will not work as-is on precise
-as sharelatex requires ruby 1.9 and precise uses ruby 1.8 as the system binary.
+access with nginx. The sharelatex server name can be specified by changing the
+sharelatex_hostname variable in vars/main.yml.
 
 Role Variables
 --------------
