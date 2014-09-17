@@ -1,0 +1,42 @@
+---
+language: python
+python: "2.7"
+
+before_install:
+
+    # Remove MySQL.
+    - sudo apt-get -y purge 'mysql*'
+    - sudo apt-get -y autoremove
+    - sudo apt-get -y autoclean
+    - sudo rm -rf /var/lib/mysql
+    - sudo truncate -s 0 /var/log/mysql/error.log
+
+    - sudo apt-get update
+
+install:
+
+    # Install Ansible.
+    - sudo apt-get -y install ansible
+    - ansible-playbook --version
+
+    # Get Roles
+    - ansible-playbook -i travis/inventory getroles.yml
+
+script:
+
+    # Check the role/playbook's syntax.
+    - ansible-playbook -i travis/inventory site.yml --syntax-check
+
+    # Run the role/playbook with ansible-playbook.
+    - ansible-playbook -i travis/inventory site.yml
+
+    # Rerun the role/playbook with ansible-playbook.
+    - ansible-playbook -i travis/inventory site.yml
+
+    # Idempotence test
+    - >
+      ansible-playbook -i travis/inventory site.yml
+      | grep -q 'changed=0.*failed=0'
+      && (echo 'Idempotence test: pass' && exit 0)
+      || (echo 'Idempotence test: fail' && exit 1)
+
