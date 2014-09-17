@@ -2,8 +2,7 @@
 galaxy_info:
   author: Mark Stillwell
   description: ShareLaTeX web service
-  company: Cranfield University
-  license: Affero GPL
+  license: GPLv2
   min_ansible_version: 1.5
   platforms:
   - name: Ubuntu

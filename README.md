@@ -1,5 +1,5 @@
-Role Name
-========
+marklee77.sharelatex
+====================
 
 The purpose of this role is to install sharelatex to a web server and enable
 access with nginx. The sharelatex server name can be specified by changing the
@@ -14,18 +14,15 @@ Role Variables
                default.
 
 Example Playbook
--------------------------
+----------------
 
-Including an example of how to use your role (for instance, with variables 
-passed in as parameters) is always nice for users too:
-
-    - hosts: default
+    - hosts: all
       sudo: True
       roles:
         - sharelatex
 
 Try it Out
----------------------------
+----------
 
 Check out the github repository, vagrant up, and load http://localhost:8888 in
 your web browser.
@@ -33,10 +30,10 @@ your web browser.
 License
 -------
 
-Affero GPL
+GPLv2
 
 Author Information
 ------------------
 
-http://marklee77.github.io
+http://stillwell.me
 
